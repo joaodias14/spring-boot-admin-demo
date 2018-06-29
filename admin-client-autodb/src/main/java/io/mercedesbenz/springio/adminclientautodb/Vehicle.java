@@ -1,16 +1,20 @@
 package io.mercedesbenz.springio.adminclientautodb;
 
+import org.springframework.data.jpa.domain.AbstractAuditable;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Entity
-public class Vehicle {
+public class Vehicle extends MyAuditable<String> implements Serializable{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     private String model;

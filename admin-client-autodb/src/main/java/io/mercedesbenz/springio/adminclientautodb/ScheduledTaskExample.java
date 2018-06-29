@@ -7,7 +7,12 @@ import org.springframework.stereotype.Component;
 public class ScheduledTaskExample {
 
     @Scheduled(fixedRate=1000)
-    public void pin(){
+    public void ping(){
+        System.out.println("ping");
+    }
+
+    @Scheduled(fixedRate=1000)
+    public void ponng(){
         System.out.println("pong");
     }
 }

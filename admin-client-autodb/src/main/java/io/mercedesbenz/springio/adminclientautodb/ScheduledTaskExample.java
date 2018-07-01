@@ -12,7 +12,7 @@ public class ScheduledTaskExample {
     }
 
     @Scheduled(fixedRate=1000)
-    public void ponng(){
+    public void pong(){
         System.out.println("pong");
     }
 }

@@ -9,12 +9,25 @@ In order to show the functionalities available in Spring Boot Admin you will nee
 ## Create the Admin server
 To create the Admin server you just need to build a regular Spring Boot app with the following details:
 
- - Add the dependency `spring-boot-admin-starter-server` to the `pom.xml`;
+ - Add the dependencies `spring-boot-admin-starter-server` and `spring-boot-admin-dependencies` to the `pom.xml`;
 ```
 <dependency>
 	<groupId>de.codecentric</groupId>
 	<artifactId>spring-boot-admin-starter-server</artifactId>
 </dependency>
+```
+```
+<dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>de.codecentric</groupId>
+			<artifactId>spring-boot-admin-dependencies</artifactId>
+			<version>${spring-boot-admin.version}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		</dependency>
+	</dependencies>
+</dependencyManagement>
 ```
 
  - Add the `@EnableAdminServer` annotation to your primary application configuration class.
@@ -123,9 +136,6 @@ In the `Http Traces` tab you can check detailed information about each HTTP requ
  2. Go to the `HttpTraces` tab;
  3. Call one of the endpoints exposed by the `Table Tenis` app, e.g. http://localhost:50345/ping;
  4. Check that a new request is displayed in the `HttpTrances` tab (you can access the request details by clicking on it).
-
-### App instance Auditing
-TODO
 
 ### App instance Scheduled Tasks
 TODO
